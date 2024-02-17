@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "typeRoots": [
+      "test/assets.d.ts",
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@app/*": [
+        "src/modules/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "test",
+    "jest.config.ts"
+  ]
+}
