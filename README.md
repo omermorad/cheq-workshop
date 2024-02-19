@@ -34,12 +34,6 @@ The core functionality of the application revolves around creating users. It sup
 Swagger is also enabled for the application, allowing you to interact with the API and test its functionality, browse to
 the `http://localhost:8080/api` endpoint to access the Swagger UI.
 
-- **POST /user**: Creates a user based on a defined schema.
-- **POST /user/random**: Creates a user either from a dummy API or using Faker.js. The strategy (FAKE, DUMMY, or
-  ARBITRARY for a random choice) is determined by the `x-random-user-strategy` header.
-- **GET /user/:id**: Retrieves a user by their ID.
-- **GET /user**: Retrieves all users.
-
 ### Key Technologies
 
 - **Database**: PostgreSQL
@@ -57,3 +51,12 @@ Take a look on the `jest.config.ts` file to explore the test configuration. We u
 for unit, and one for integration.
 Those projects are also running separately in the CI pipeline.
 
+## Useful Links
+ * https://github.com/automock/automock
+ * https://automock.dev
+ * https://www.npmjs.com/package/jest-mock-extended
+ * https://mermaid.live
+ * https://www.npmjs.com/package/geo-tz
+ * https://github.com/jmcdo29/nestjs-spelunker
+ * https://node.testcontainers.org/quickstart
+ * https://timeapi.io/swagger/index.html

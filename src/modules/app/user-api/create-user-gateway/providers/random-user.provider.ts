@@ -12,22 +12,24 @@ export const strategyNameToProvider: Record<UserCreationStrategyType, Type<UserC
   DUMMY: UserCreationDummyStrategy,
 } as const;
 
+export const factory = (moduleRef: ModuleRef, cls: ClsService, logger: Logger): Type<UserCreationStrategy> => {
+  const givenStrategy = cls.get<UserCreationStrategyType | 'ARBITRARY'>('creationStrategy');
+
+  const randomUserStrategy =
+    givenStrategy === 'ARBITRARY'
+      ? Math.random() > 0.5
+        ? 'FAKE'
+        : 'DUMMY'
+      : (givenStrategy as UserCreationStrategyType);
+
+  logger.log(`Random user strategy selected: ${randomUserStrategy}, headers was ${givenStrategy}`);
+
+  return moduleRef.get(strategyNameToProvider[randomUserStrategy], { strict: true });
+};
+
 export const CreateRandomUserProvider: FactoryProvider<Type<UserCreationStrategy>> = {
   provide: RandomUserToken,
-  useFactory: (moduleRef: ModuleRef, cls: ClsService, logger: Logger): Type<UserCreationStrategy> => {
-    const givenStrategy = cls.get<UserCreationStrategyType | 'ARBITRARY'>('creationStrategy');
-
-    const randomUserStrategy =
-      givenStrategy === 'ARBITRARY'
-        ? Math.random() > 0.5
-          ? 'FAKE'
-          : 'DUMMY'
-        : (givenStrategy as UserCreationStrategyType);
-
-    logger.log(`Random user strategy selected: ${randomUserStrategy}, headers was ${givenStrategy}`);
-
-    return moduleRef.get(strategyNameToProvider[randomUserStrategy], { strict: true });
-  },
+  useFactory: factory,
   inject: [ModuleRef, ClsService, Logger],
   scope: Scope.REQUEST,
 };

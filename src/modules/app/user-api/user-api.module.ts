@@ -10,7 +10,7 @@ import { ClsMiddleware, ClsModule } from 'nestjs-cls';
     UserDalModule,
     CreateUserGatewayModule,
     ClsModule.forRoot({
-      global: true,
+      global: false,
       middleware: {
         mount: false,
         setup: (cls, req) => {

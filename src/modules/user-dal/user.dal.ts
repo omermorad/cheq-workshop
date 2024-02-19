@@ -23,4 +23,8 @@ export class UserDal {
   public async getAllUsers(): Promise<User[]> {
     return this.prisma.user.findMany();
   }
+
+  public async getUsersByEmailSuffix(domain: string): Promise<{ email: string }[]> {
+    return this.prisma.user.findMany({ where: { email: { endsWith: `@${domain}` } }, select: { email: true } });
+  }
 }

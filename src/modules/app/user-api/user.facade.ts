@@ -38,4 +38,9 @@ export class UserFacade {
   public async getAllUsers(): Promise<User[]> {
     return this.userDal.getAllUsers();
   }
+
+  public async getUsersByEmailSuffix(domain: string): Promise<string[]> {
+    const emails = await this.userDal.getUsersByEmailSuffix(domain);
+    return emails.map(({ email }) => email);
+  }
 }

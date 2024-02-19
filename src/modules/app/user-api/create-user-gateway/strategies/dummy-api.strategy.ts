@@ -4,10 +4,14 @@ import { Injectable } from '@nestjs/common';
 import { find as findGeo } from 'geo-tz';
 import { Gender } from '@prisma/client';
 import { DummyUserApiClientService } from '@app/app/user-api/create-user-gateway/modules/external-users-api/dummy-user-api-client.service';
+import { TimeApiClientService } from '@app/time-external-api/time-api-client.service';
 
 @Injectable()
 export class UserCreationDummyStrategy implements UserCreationStrategy {
-  public constructor(private readonly dummyUserApiClientService: DummyUserApiClientService) {}
+  public constructor(
+    private readonly dummyUserApiClientService: DummyUserApiClientService,
+    private readonly timeClient: TimeApiClientService,
+  ) {}
 
   public async create(): Promise<CreateUserDao | never> {
     const randomUser = await this.dummyUserApiClientService.getRandomUserFromApi().catch((error) => {
