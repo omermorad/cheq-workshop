@@ -74,6 +74,6 @@ describe('Creating a User Integration Test', () => {
 
   afterAll(async () => {
     await app.close();
-    await container.stop();
+    // await container.stop()
   });
 });
