@@ -4,6 +4,8 @@ Welcome to the User Creation Workshop! This workshop will guide you through deve
 dedicated to creating users in various ways. The application is built with NestJS and utilizes several key technologies
 and practices.
 
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/omermorad/cheq-workshop/master.svg?style=flat-square)](https://codecov.io/gh/omermoerad/cheq-workshop)
+
 ## Prerequisites
 1. Docker installed
 2. Node.js 18.x installed

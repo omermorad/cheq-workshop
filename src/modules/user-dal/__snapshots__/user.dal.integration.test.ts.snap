@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Creating a Random User Integration Test Email exists should success because email does no exist 1`] = `
+{
+  "createdAt": toBeDate<>,
+  "email": toBeString<>,
+  "gender": "Other",
+  "id": toBeString<>,
+  "name": "dummy",
+  "timezone": "Timezone",
+}
+`;
