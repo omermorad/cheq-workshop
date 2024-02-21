@@ -26,13 +26,17 @@ export class UserFacade {
   }
 
   public async getUser(id: string): Promise<User> {
-    const user = await this.userDal.getUserById(id);
+    const user = await this.getTheUser(id);
 
     if (!user) {
       throw new NotFoundException({ message: `User id '${id}' not found` });
     }
 
     return user;
+  }
+
+  private async getTheUser(id: string): Promise<User | null> {
+    return this.userDal.getUserById(id);
   }
 
   public async getAllUsers(): Promise<User[]> {

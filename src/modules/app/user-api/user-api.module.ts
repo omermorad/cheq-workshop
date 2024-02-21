@@ -25,6 +25,7 @@ import { ClsMiddleware, ClsModule } from 'nestjs-cls';
   ],
   providers: [UserFacade, Logger],
   controllers: [UserController],
+  exports: [],
 })
 export class UserApiModule implements NestModule {
   public configure(consumer: MiddlewareConsumer): void {
