@@ -14,6 +14,7 @@ export const strategyNameToProvider: Record<UserCreationStrategyType, Type<UserC
 
 export const factory = (moduleRef: ModuleRef, cls: ClsService, logger: Logger): Type<UserCreationStrategy> => {
   const givenStrategy = cls.get<UserCreationStrategyType | 'ARBITRARY'>('creationStrategy');
+  // x-random-user-strategy
 
   const randomUserStrategy =
     givenStrategy === 'ARBITRARY'

@@ -12,7 +12,7 @@ export interface CreateUserRequestSchema {
 export class CreateUserRequestSchema {
   @ApiProperty({
     example: 'John Doe',
-    name: 'Name',
+    name: 'name',
     description: 'User name',
     required: true,
   })
@@ -20,7 +20,7 @@ export class CreateUserRequestSchema {
 
   @ApiProperty({
     example: 'john@doe.com',
-    name: 'Email',
+    name: 'email',
     description: 'User email',
     required: true,
   })
@@ -32,7 +32,7 @@ export class CreateUserRequestSchema {
       description: 'List of timezones',
       url: 'https://en.wikipedia.org/wiki/List_of_tz_database_time_zone#List',
     },
-    name: 'Timezone',
+    name: 'timezone',
     description: 'User timezone',
     required: true,
   })
@@ -40,7 +40,7 @@ export class CreateUserRequestSchema {
 
   @ApiProperty({
     example: 'Male',
-    name: 'User gender',
+    name: 'gender',
     required: true,
     enum: $Enum.Gender,
   })
